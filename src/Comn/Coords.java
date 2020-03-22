@@ -1,4 +1,8 @@
-package Main;
+package Comn;
+
+/*
+    created by zdRusty
+*/
 
 public class Coords{
 

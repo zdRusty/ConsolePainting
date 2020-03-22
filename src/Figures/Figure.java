@@ -1,15 +1,15 @@
 package Figures;
 
-import Main.Coords;
+/*
+    Abstract factory
+    created by zdRusty
+*/
 
 public interface Figure {
-    /*Coords top1 = null;
-    Coords top2 = null;
-    Coords low1 = null;
-    Coords low2 = null;*/
 
-    void draw(char[][] a);
-    Figure getOne(char[][] a);
-    void remove(char[][] a);
+    void draw();
+    void fill();
+    void remove();
+    void removeAll();
 
 }
