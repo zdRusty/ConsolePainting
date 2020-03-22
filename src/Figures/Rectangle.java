@@ -19,6 +19,7 @@ public class Rectangle implements Figure{
     private Coords low2;
     private char c = '█';
     private char[][] canvas = MyCanvas.chars;
+    private String color;
 
     public Rectangle(Coords top1, Coords top2, Coords low1, Coords low2){
         this.top1 = top1;

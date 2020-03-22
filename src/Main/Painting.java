@@ -19,16 +19,15 @@ public class Painting {
         Figure rect2 = new Rectangle(2,1,56,18);
         Figure rect3 = new Rectangle(4,2,52,16,'*');
         Figure rect4 = new Rectangle(20,0,20,20);
+        Figure rect5 = new Rectangle(28,8,4,4);
 
         list.add(rect1);
         list.add(rect2);
         list.add(rect3);
         list.add(rect4);
+        list.add(rect5);
         list.forEach(Figure::draw);
         rect2.remove();
         MyCanvas.print();
-
-        //System.out.println((char) 27 + "[31m▒ " + (char) 27 + "[0m");
-
     }
 }
