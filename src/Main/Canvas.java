@@ -1,23 +1,23 @@
-package Matrixes;
+package Main;
 
 // Lazy Singleton
 
 import java.util.Arrays;
 
-public class Matrix {
-    private static Matrix matrix;
+public class Canvas {
+    private static Canvas canvas;
     private static int n;
     private static int m;
     public static char [][] chars;
 
-    private Matrix(int n, int m){
-        Matrix.n =n;
-        Matrix.m =m;
+    private Canvas(int n, int m){
+        Canvas.n =n;
+        Canvas.m =m;
     }
 
     public static void getMatrix (int n, int m){
-        if (matrix==null) {
-            matrix = new Matrix(n, m);
+        if (canvas ==null) {
+            canvas = new Canvas(n, m);
             chars=gen();
         }
     }
@@ -33,8 +33,8 @@ public class Matrix {
     }
 
     private static char[][] gen (){
-        int n = Matrix.n;
-        int m = Matrix.m;
+        int n = Canvas.n;
+        int m = Canvas.m;
         char[][] mat = new char[m][n];
         for (char[] value : mat) {
             Arrays.fill(value, ' ');
