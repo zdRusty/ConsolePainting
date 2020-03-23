@@ -18,7 +18,7 @@ public class MyCanvas {
         MyCanvas.m =m;
     }
 
-    public static void getCanvas(int n, int m){
+    public static void setCanvas(int n, int m){
         if (myCanvas ==null) {
             myCanvas = new MyCanvas(n, m);
             chars=gen();

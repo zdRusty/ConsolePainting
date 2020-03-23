@@ -4,12 +4,8 @@ package Figures;
     created by zdRusty
 */
 
-import Comn.Colr;
 import Comn.Coords;
 import Comn.MyCanvas;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class Rectangle implements Figure{
 
@@ -17,11 +13,11 @@ public class Rectangle implements Figure{
     private Coords top2;
     private Coords low1;
     private Coords low2;
-    private char c = '█';
+    private char brush = '█';
     private char[][] canvas = MyCanvas.chars;
-    private String color;
+    //private String color;
 
-    public Rectangle(Coords top1, Coords top2, Coords low1, Coords low2){
+    private Rectangle(Coords top1, Coords top2, Coords low1, Coords low2){
         this.top1 = top1;
         this.top2 = top2;
         this.low1 = low1;
@@ -35,12 +31,12 @@ public class Rectangle implements Figure{
         this.low2 = new Coords(top1.x + wide,top1.y + height);
     }
 
-    public Rectangle (int x, int y, int wide, int height, char c){
+    public Rectangle (int x, int y, int wide, int height, char brush){
         this.top1 = new Coords(x,y);
         this.top2 = new Coords(top1.x + wide,top1.y);
         this.low1 = new Coords(top1.x,top1.y + height);
         this.low2 = new Coords(top1.x + wide,top1.y + height);
-        this.c = c;
+        this.brush = brush;
     }
 
     @Override
@@ -48,13 +44,13 @@ public class Rectangle implements Figure{
         for(int y = this.top1.y; y<this.low1.y; y++){
             for(int x=this.top1.x;x<this.top2.x;x++){
                 if (x==this.top1.x||x==this.top2.x-1)
-                    canvas[y][x]=c;
+                    canvas[y][x]= brush;
             }
         }
         for(int y = this.top1.y; y<this.low1.y; y++){
             for(int x=this.top1.x;x<this.top2.x;x++){
                 if (y==this.top1.y||y==this.low1.y-1)
-                canvas[y][x]=c;
+                canvas[y][x]= brush;
             }
         }
     }
@@ -63,7 +59,7 @@ public class Rectangle implements Figure{
     public void fill() {
         for(int y = this.top1.y; y<this.low1.y; y++){
             for(int x=this.top1.x;x<this.top2.x;x++){
-                canvas[y][x]=c;
+                canvas[y][x]= brush;
             }
         }
     }
