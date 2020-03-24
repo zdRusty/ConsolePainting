@@ -1,11 +1,11 @@
-package Figures;
+package figures;
 
 /*
     created by zdRusty
 */
 
-import Comn.Coords;
-import Comn.MyCanvas;
+import comn.Coords;
+import comn.MyCanvas;
 
 public class Ellipse implements Figure{
 
@@ -36,7 +36,7 @@ public class Ellipse implements Figure{
 
     @Override
     public void draw() {
-        for(int y = centre.y - rHeight; y <= centre.y + rHeight; y++){
+        /*for(int y = centre.y - rHeight; y <= centre.y + rHeight; y++){
             for(int x = centre.x - rWide; x <= centre.x + rWide; x++){
                 if (rWide==1){
                     if((x!=centre.x-rWide&&y==centre.y)||(x!=centre.x+rWide&&y==centre.y))
@@ -50,6 +50,17 @@ public class Ellipse implements Figure{
                 if (rHeight==1){
                     if((y!=centre.y-rHeight&&x==centre.x)||(y!=centre.y+rHeight&&x==centre.x))
                         canvas[y][x] = brush;
+                }
+            }
+        }*/
+    }
+
+    private void subDraw (int radW, int radH, int X, int Y){
+        if (radW==1) {
+            for (int y = Y - radH; y <= Y + radH; y++) {
+                for (int x = X - radW; x <= X + radW; x++) {
+                    if ((x != X - radW && y == Y) || (x != X + radW && y == Y))
+                            canvas[x][y] = brush;
                 }
             }
         }
@@ -72,6 +83,6 @@ public class Ellipse implements Figure{
 
     @Override
     public String toString() {
-        return String.format("координаты центра: (%d,%d) \n\nширина: %d; высота: %d",centre.x, centre.y, rWide*2, rHeight*2);
+        return String.format("координаты центра: (%d,%d) \n\nширина: %d; высота: %d", centre.x, centre.y, rWide*2, rHeight*2);
     }
 }

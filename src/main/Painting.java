@@ -1,13 +1,15 @@
-package Main;
+package main;
 
 /*
     created by zdRusty
 */
 
-import Comn.MyCanvas;
-import Figures.Ellipse;
-import Figures.Figure;
-import Figures.Rectangle;
+import comn.MyCanvas;
+import figures.Ellipse;
+import figures.Figure;
+import figures.Rectangle;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,7 +22,7 @@ public class Painting {
         Figure rect2 = new Rectangle(2,1,56,18);
         Figure rect3 = new Rectangle(4,2,52,16,'*');
         Figure rect4 = new Rectangle(20,0,20,20);
-        Figure ell = new Ellipse(29,9,1, 1);
+        Figure ell = new Ellipse(30,9,1, 1, '*');
 
         list.add(rect1);
         list.add(rect2);
@@ -31,14 +33,25 @@ public class Painting {
         /*try {
             for(Figure x: list){
                 x.draw();
-                Thread.sleep(100);
+                Thread.sleep(300);
                 MyCanvas.print();
-                System.out.println();
-                System.out.println();
-                System.out.println();
+                clrscr();
             }
         } catch (InterruptedException e){}*/
         rect2.remove();
         MyCanvas.print();
+    }
+
+    public static void clrscr(){
+        try
+        {
+            Process proc = Runtime.getRuntime().exec("cmd cls");
+            //proc.waitFor();
+            proc.destroy();
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
     }
 }

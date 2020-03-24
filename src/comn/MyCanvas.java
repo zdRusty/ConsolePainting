@@ -1,4 +1,4 @@
-package Comn;
+package comn;
 
 /*
     Lazy Singleton

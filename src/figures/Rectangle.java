@@ -1,11 +1,11 @@
-package Figures;
+package figures;
 
 /*
     created by zdRusty
 */
 
-import Comn.Coords;
-import Comn.MyCanvas;
+import comn.Coords;
+import comn.MyCanvas;
 
 public class Rectangle implements Figure{
 

@@ -6,7 +6,7 @@
             .print();        // выводит холст на экран
             .clear();        // очищает холст
 
-Далее необходимо создать объект типа Figure(Rectangle - прямоугольник, Circle - окружность, ...)
+Далее необходимо создать объект типа Figure(Rectangle - прямоугольник, Ellipse - эллипс, ...)
 
     - для прямоугольника
 
@@ -15,10 +15,10 @@
 
     (x, y) кооодинаты левого верхнего угла
 
-    - для окружности
+    - для эллипса
 
-    Figure circle1 = new Circle(int x, int y, int radius);
-    Figure circle2 = new Circle(int x, int y, int radius, char brush));
+    Figure ell = new Ellipse(int x, int y, int rWide, int rHeight);                   // rWide - половина ширины
+    Figure ell2 = new Ellipse(int x, int y, int rWide, int rHeight, char brush));     // rHeight - половина высоты
 
     в разработке:
     - line;
@@ -31,7 +31,7 @@
 
              в разработке:
              .move(int x; int y);   //двигает фигуру
-             .rotate();             //поворачиват на 90 градусов
+             .rotate();             //поворачивает на 90 градусов
 
 
 
@@ -45,9 +45,3 @@
 ✃ ✄ ✆ ✇ ✈ ✉ ✌ ✍ ✎ ✏ ✐ ✑ ✒ ✓ ✔ ✕ ✖ ✗ ✘ ✙ ✚ ✛ ✜ ✝ ✞ ✟ ✠ ✡ ✢ ✣ ✤ ✥ ✦ ✧ ✩ ✪ ✫ ✬ ✭ ✮ ✯ ✰ ✱ ✲
 ✳ ✴ ✵ ✶ ✷ ✸ ✹ ✺ ✻ ✼ ✽ ✾ ✿ ❀ ❁ ❂ ❃ ❄ ❅ ❆ ❇ ❈ ❉ ❊ ❋ ❍ ❏ ❐ ❑ ❒ ❖ ❡ ❢ ❣ ❤ ❥ ❦ ❧ ൠ ൡ ອ ຮ ຯ 〄 ⃞
 ⃟ ❛ ❜ ❝ ❞ † ‡ ⊲ ⊳ ⊴ ⊵ ♮ ♯  ٩(͡๏̯͡๏)۶ Ƹ̴Ӂ̴Ʒ ۩ ۞  ©
-
-
-
-
-
-
