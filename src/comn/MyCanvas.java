@@ -9,8 +9,8 @@ import java.util.Arrays;
 
 public class MyCanvas {
     private static MyCanvas myCanvas;
-    private static int n;
-    private static int m;
+    public static int n;
+    public static int m;
     public static char [][] chars;
 
     private MyCanvas(int n, int m){

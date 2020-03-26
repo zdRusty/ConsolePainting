@@ -6,6 +6,7 @@ package figures;
 
 import comn.Coords;
 import comn.MyCanvas;
+import comn.OutOfCanvasException;
 
 public class Rectangle implements Figure{
 
@@ -17,83 +18,103 @@ public class Rectangle implements Figure{
     private char[][] canvas = MyCanvas.chars;
     //private String color;
 
-    private Rectangle(Coords top1, Coords top2, Coords low1, Coords low2){
-        this.top1 = top1;
-        this.top2 = top2;
-        this.low1 = low1;
-        this.low2 = low2;
-    }
-
     public Rectangle (int x, int y, int wide, int height){
-        this.top1 = new Coords(x,y);
-        this.top2 = new Coords(top1.x + wide,top1.y);
-        this.low1 = new Coords(top1.x,top1.y + height);
-        this.low2 = new Coords(top1.x + wide,top1.y + height);
+        try {
+            if(x<=MyCanvas.n&&y<=MyCanvas.m) {
+                this.top1 = new Coords(x, y);
+                this.top2 = new Coords(top1.x + wide, top1.y);
+                this.low1 = new Coords(top1.x, top1.y + height);
+                this.low2 = new Coords(top1.x + wide, top1.y + height);
+                if(top2.x>MyCanvas.n) top2.x=MyCanvas.n;
+                if(low1.y>MyCanvas.m) low1.y=MyCanvas.m;
+            }
+            else throw new OutOfCanvasException();
+        } catch (OutOfCanvasException e) {
+            System.out.println("Фигура находится за пределами холста!");
+        }
     }
 
     public Rectangle (int x, int y, int wide, int height, char brush){
-        this.top1 = new Coords(x,y);
-        this.top2 = new Coords(top1.x + wide,top1.y);
-        this.low1 = new Coords(top1.x,top1.y + height);
-        this.low2 = new Coords(top1.x + wide,top1.y + height);
-        this.brush = brush;
+        try {
+            if(x<=MyCanvas.n&&y<=MyCanvas.m) {
+                this.top1 = new Coords(x, y);
+                this.top2 = new Coords(top1.x + wide, top1.y);
+                this.low1 = new Coords(top1.x, top1.y + height);
+                this.low2 = new Coords(top1.x + wide, top1.y + height);
+                if(top2.x>MyCanvas.n) top2.x=MyCanvas.n;
+                if(low1.y>MyCanvas.m) low1.y=MyCanvas.m;
+                this.brush = brush;
+            }
+            else throw new OutOfCanvasException();
+        } catch (OutOfCanvasException e) {
+            System.out.println("Фигура находится за пределами холста!");
+        }
     }
 
     @Override
     public void draw (){
-        for(int y = top1.y; y<=low1.y; y++){
-            for(int x=top1.x;x<=top2.x;x++){
-                if (x==top1.x||x==top2.x)
-                    canvas[y][x]= brush;
+        if(top1!=null&&top2!=null&&low1!=null&&low2!=null) {
+            for (int y = top1.y; y <= low1.y; y++) {
+                for (int x = top1.x; x <= top2.x; x++) {
+                    if (x == top1.x || x == top2.x)
+                        canvas[y][x] = brush;
+                }
             }
-        }
-        for(int y = top1.y; y<=low1.y; y++){
-            for(int x=top1.x;x<=top2.x;x++){
-                if (y==top1.y||y==low1.y)
-                canvas[y][x]= brush;
+            for (int y = top1.y; y <= low1.y; y++) {
+                for (int x = top1.x; x <= top2.x; x++) {
+                    if (y == top1.y || y == low1.y)
+                        canvas[y][x] = brush;
+                }
             }
         }
     }
 
     @Override
     public void fill() {
-        for(int y = top1.y; y<=low1.y; y++){
-            for(int x=top1.x;x<=top2.x;x++){
-                canvas[y][x]= brush;
+        if(top1!=null&&top2!=null&&low1!=null&&low2!=null) {
+            for (int y = top1.y; y <= low1.y; y++) {
+                for (int x = top1.x; x <= top2.x; x++) {
+                    canvas[y][x] = brush;
+                }
             }
         }
     }
 
     @Override
     public void remove() {
-        for(int y = top1.y; y<=low1.y; y++){
-            for(int x=top1.x;x<=top2.x;x++){
-                if (x==top1.x||x==top2.x)
-                    canvas[y][x]=' ';
+        if(top1!=null&&top2!=null&&low1!=null&&low2!=null) {
+            for (int y = top1.y; y <= low1.y; y++) {
+                for (int x = top1.x; x <= top2.x; x++) {
+                    if (x == top1.x || x == top2.x)
+                        canvas[y][x] = ' ';
+                }
+            }
+            for (int y = top1.y; y <= low1.y; y++) {
+                for (int x = top1.x; x <= top2.x; x++) {
+                    if (y == top1.y || y == low1.y)
+                        canvas[y][x] = ' ';
+                }
             }
         }
-        for(int y = top1.y; y<=low1.y; y++){
-            for(int x=top1.x;x<=top2.x;x++){
-                if (y==top1.y||y==low1.y)
-                    canvas[y][x]=' ';
-            }
-        }
-
     }
 
     @Override
     public void removeAll() {
-        for(int y=top1.y;y<=low1.y;y++){
-            for(int x=top1.x;x<=top2.x;x++){
-                canvas[y][x]=' ';
+        if(top1!=null&&top2!=null&&low1!=null&&low2!=null) {
+            for (int y = top1.y; y <= low1.y; y++) {
+                for (int x = top1.x; x <= top2.x; x++) {
+                    canvas[y][x] = ' ';
+                }
             }
         }
     }
 
     @Override
     public String toString() {
-        int wide = top2.x-top1.x;
-        int height = low1.y-top1.y;
-        return String.format("координаты начала: (%d,%d) \nширина: %d; высота: %d",top1.x, top1.y, wide ,height);
+        if(top1!=null&&top2!=null&&low1!=null&&low2!=null) {
+            int wide = top2.x - top1.x;
+            int height = low1.y - top1.y;
+            return String.format("координаты начала: (%d,%d) \nширина: %d; высота: %d", top1.x, top1.y, wide, height);
+        } return "";
     }
 }

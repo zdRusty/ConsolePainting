@@ -15,11 +15,7 @@ public class Ellipse implements Figure{
     private char[][] canvas = MyCanvas.chars;
     private char brush = '█';
 
-    private Ellipse(Coords centre, int rWide, int rHeight){
-        this.centre = centre;
-        this.rWide = rWide;
-        this.rHeight = rHeight;
-    }
+    char[][] temp = canvas;
 
     public Ellipse(int x, int y, int rWide, int rHeight){
         this.centre = new Coords(x,y);
@@ -52,7 +48,7 @@ public class Ellipse implements Figure{
 
     private char[][] subDrawWide (int radW, int radH){
         char[][] temp = canvas;
-        if (radW!=1&&radW!=2) {
+        if (radW!=1) {
 
             for(int y = centre.y - radH; y <= centre.y + radH; y++){
                 for(int x = centre.x - radW+2; x <= centre.x + radW-2; x++) {
@@ -72,8 +68,8 @@ public class Ellipse implements Figure{
         } return temp;
     }
     private char[][] subDrawHeight (int radW, int radH){
-        char[][] temp = canvas;
-        if (radH!=1&&radH!=2) {
+
+        if (radH!=1) {
 
             for(int y = centre.y - radH+2; y <= centre.y + radH-2; y++){
                 for(int x = centre.x - radW; x <= centre.x + radW; x++) {

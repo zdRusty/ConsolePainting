@@ -6,13 +6,20 @@ package comn;
 
 public class Coords{
 
-    public final int x;
-    public final int y;
+    public int x;
+    public int y;
 
-    public Coords(int x, int y){
-        this.x=x;
-        this.y=y;
+    public Coords(int x, int y) {
+        try {
+            if (x >= 0 && y >= 0) {
+                this.x = x;
+                this.y = y;
+            } else throw new MinesCoordException();
+        } catch (MinesCoordException e) {
+            System.out.println("Координаты не должны быть отрицательными!");
+        }
     }
+
 
     @Override
     public String toString(){
