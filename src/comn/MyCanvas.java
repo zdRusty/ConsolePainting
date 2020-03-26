@@ -42,8 +42,8 @@ public class MyCanvas {
     }
 
     private static char[][] gen (){
-        int n = MyCanvas.n;
-        int m = MyCanvas.m;
+        int n = MyCanvas.n+1;
+        int m = MyCanvas.m+1;
         char[][] can = new char[m][n];
         for (char[] value : can) {
             Arrays.fill(value, ' ');

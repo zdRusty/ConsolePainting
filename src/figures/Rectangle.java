@@ -41,15 +41,15 @@ public class Rectangle implements Figure{
 
     @Override
     public void draw (){
-        for(int y = this.top1.y; y<this.low1.y; y++){
-            for(int x=this.top1.x;x<this.top2.x;x++){
-                if (x==this.top1.x||x==this.top2.x-1)
+        for(int y = top1.y; y<=low1.y; y++){
+            for(int x=top1.x;x<=top2.x;x++){
+                if (x==top1.x||x==top2.x)
                     canvas[y][x]= brush;
             }
         }
-        for(int y = this.top1.y; y<this.low1.y; y++){
-            for(int x=this.top1.x;x<this.top2.x;x++){
-                if (y==this.top1.y||y==this.low1.y-1)
+        for(int y = top1.y; y<=low1.y; y++){
+            for(int x=top1.x;x<=top2.x;x++){
+                if (y==top1.y||y==low1.y)
                 canvas[y][x]= brush;
             }
         }
@@ -57,8 +57,8 @@ public class Rectangle implements Figure{
 
     @Override
     public void fill() {
-        for(int y = this.top1.y; y<this.low1.y; y++){
-            for(int x=this.top1.x;x<this.top2.x;x++){
+        for(int y = top1.y; y<=low1.y; y++){
+            for(int x=top1.x;x<=top2.x;x++){
                 canvas[y][x]= brush;
             }
         }
@@ -66,15 +66,15 @@ public class Rectangle implements Figure{
 
     @Override
     public void remove() {
-        for(int y = this.top1.y; y<this.low1.y; y++){
-            for(int x=this.top1.x;x<this.top2.x;x++){
-                if (x==this.top1.x||x==this.top2.x-1)
+        for(int y = top1.y; y<=low1.y; y++){
+            for(int x=top1.x;x<=top2.x;x++){
+                if (x==top1.x||x==top2.x)
                     canvas[y][x]=' ';
             }
         }
-        for(int y = this.top1.y; y<this.low1.y; y++){
-            for(int x=this.top1.x;x<this.top2.x;x++){
-                if (y==this.top1.y||y==this.low1.y-1)
+        for(int y = top1.y; y<=low1.y; y++){
+            for(int x=top1.x;x<=top2.x;x++){
+                if (y==top1.y||y==low1.y)
                     canvas[y][x]=' ';
             }
         }
@@ -83,8 +83,8 @@ public class Rectangle implements Figure{
 
     @Override
     public void removeAll() {
-        for(int y=this.top1.y;y<this.low1.y;y++){
-            for(int x=this.top1.x;x<this.top2.x;x++){
+        for(int y=top1.y;y<=low1.y;y++){
+            for(int x=top1.x;x<=top2.x;x++){
                 canvas[y][x]=' ';
             }
         }

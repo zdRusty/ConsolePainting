@@ -22,7 +22,7 @@ public class Painting {
         Figure rect2 = new Rectangle(2,1,56,18);
         Figure rect3 = new Rectangle(4,2,52,16,'*');
         Figure rect4 = new Rectangle(20,0,20,20);
-        Figure ell = new Ellipse(30,9,1, 1, '*');
+        Figure ell = new Ellipse(30,9,7, 3, '*');
 
         list.add(rect1);
         list.add(rect2);
