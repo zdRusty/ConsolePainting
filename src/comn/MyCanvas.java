@@ -14,8 +14,11 @@ public class MyCanvas {
     public static char [][] chars;
 
     private MyCanvas(int n, int m){
-        MyCanvas.n =n;
-        MyCanvas.m =m;
+        if(n>0&&m>0) {
+            MyCanvas.n = n;
+            MyCanvas.m = m;
+        } else
+            System.out.println((char) 27 + "" +"[31m" +"Холст не был инициализирован!"+ (char)27 + "[0m");
     }
 
     public static void setCanvas(int n, int m){

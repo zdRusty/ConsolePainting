@@ -7,6 +7,8 @@ package figures;
 import comn.Coords;
 import comn.MyCanvas;
 
+import java.util.Arrays;
+
 public class Ellipse implements Figure{
 
     private Coords centre;
@@ -33,47 +35,44 @@ public class Ellipse implements Figure{
     @Override
     public void draw() {
 
-        for(int y = 0; y < canvas.length; y++){
-            for(int x = 0; x < canvas[y].length; x++){
+        for(int y = 0; y <= rHeight; y++){
+            for(int x = 0; x <= rWide; x++){
                 canvas[y][x] = subDrawWide(rWide, rHeight)[y][x];
             }
         }
-        for(int y = 0; y < canvas.length; y++){
+
+        /*for(int y = 0; y < canvas.length; y++){
             for(int x = 0; x < canvas[y].length; x++){
                 canvas[y][x] = subDrawHeight(rWide, rHeight)[y][x];
             }
-        }
+        }*/
 
     }
 
     private char[][] subDrawWide (int radW, int radH){
-        char[][] temp = canvas;
-        if (radW!=1) {
-
-            for(int y = centre.y - radH; y <= centre.y + radH; y++){
-                for(int x = centre.x - radW+2; x <= centre.x + radW-2; x++) {
-                    temp[y][x] = brush;
-                }
-            }
-
-            return subDrawWide(radW-1,radH);
-        } else {
-
-            for (int y = centre.y - radH; y <= centre.y + radH; y++) {
-                for (int x = centre.x - radW+1; x <= centre.x + radW-1; x++) {
-                    temp[y][x] = brush;
-                }
-            }
-
-        } return temp;
+       char[][] temp = new char[2*radW][2*radH];
+       for(int y=centre.y;y<2*radH;y++){
+           for(int x=centre.x;x<2*radW;x++){
+               temp[y][x]=brush;
+           }
+       }
+       return temp;
     }
-    private char[][] subDrawHeight (int radW, int radH){
+    /*private char[][] subDrawHeight (int radW, int radH){
+        char[][] tempHeight = canvas;
+        char[][] subHeightCanvas = canvas;
 
-        if (radH!=1) {
+        if (radH>1) {
 
             for(int y = centre.y - radH+2; y <= centre.y + radH-2; y++){
                 for(int x = centre.x - radW; x <= centre.x + radW; x++) {
-                    temp[y][x] = brush;
+                    tempHeight[y][x] = brush;
+                }
+            }
+
+            for(int y = 0; y < canvas.length; y++){
+                for(int x = 0; x < canvas[y].length; x++){
+                    subHeightCanvas[y][x] = tempHeight[y][x];
                 }
             }
 
@@ -82,12 +81,18 @@ public class Ellipse implements Figure{
 
             for (int y = centre.y - radH+1; y <= centre.y + radH-1; y++) {
                 for (int x = centre.x - radW; x <= centre.x + radW; x++) {
-                    temp[y][x] = brush;
+                    tempHeight[y][x] = brush;
                 }
             }
 
-        } return temp;
-    }
+            for(int y = 0; y < canvas.length; y++){
+                for(int x = 0; x < canvas[y].length; x++){
+                    subHeightCanvas[y][x] = tempHeight[y][x];
+                }
+            }
+
+        } return subHeightCanvas;
+    }*/
 
     @Override
     public void remove() {

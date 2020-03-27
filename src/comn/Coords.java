@@ -16,7 +16,7 @@ public class Coords{
                 this.y = y;
             } else throw new MinesCoordException();
         } catch (MinesCoordException e) {
-            System.out.println("Координаты не должны быть отрицательными!");
+            System.out.println((char) 27 + "[31m" +"Координаты не должны иметь отрицательное значение!" + (char)27 + "[0m");
         }
     }
 

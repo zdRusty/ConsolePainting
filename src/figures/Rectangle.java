@@ -30,7 +30,7 @@ public class Rectangle implements Figure{
             }
             else throw new OutOfCanvasException();
         } catch (OutOfCanvasException e) {
-            System.out.println("Фигура находится за пределами холста!");
+            System.out.println((char) 27 + "" +"[31m" +"Фигура находится за пределами холста!"+ (char)27 + "[0m");
         }
     }
 
@@ -47,7 +47,7 @@ public class Rectangle implements Figure{
             }
             else throw new OutOfCanvasException();
         } catch (OutOfCanvasException e) {
-            System.out.println("Фигура находится за пределами холста!");
+            System.out.println((char) 27 + "" +"[31m" +"Фигура находится за пределами холста!"+ (char)27 + "[0m");
         }
     }
 
